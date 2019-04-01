@@ -1,6 +1,7 @@
 const {
   evens,
-  firstEven
+  firstEven,
+  allEvens
 } = require('./evens');
 
 describe('evens functions', () => {
@@ -12,5 +13,15 @@ describe('evens functions', () => {
 
   it('returns the index of the first even number in an array', () => {
     expect(firstEven([1, 2, 3])).toEqual(1);
+  });
+
+  describe('allEvens', () => {
+    it('returns truce if all number are even', () => {
+      expect(allEvens([2, 4, 6])).toBeTruthy();
+    });
+
+    it('returns truce if all number are even', () => {
+      expect(allEvens([3, 5, 8])).toBeFalsy();
+    });
   });
 });

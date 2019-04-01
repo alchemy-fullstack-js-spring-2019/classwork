@@ -12,7 +12,22 @@ const evens = arr => arr.filter(isEven);
 
 const firstEven = arr => arr.findIndex(isEven);
 
+// arrow functions on one line implicitly return
+const allEvens = arr => arr.every(isEven);
+
+
+// declaring a function
+// function allEvens(arr) {
+//   return arr.every(isEven)
+// }
+
+// expressing a function
+// const allEvens = function (arr) {
+//   return arr.every(isEven)
+// }
+
 module.exports = {
   evens,
-  firstEven
+  firstEven,
+  allEvens
 };
