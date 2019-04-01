@@ -4,7 +4,7 @@
   "description": "## Readings and Resources",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "test:watch": "npm run test -- --watch",
     "start": "node index.js"
   },
