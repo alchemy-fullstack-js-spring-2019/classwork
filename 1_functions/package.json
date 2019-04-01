@@ -1,0 +1,19 @@
+{
+  "name": "functions",
+  "version": "0.0.1",
+  "description": "## Readings and Resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "npm run test -- --watch",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "jest": "^24.5.0"
+  }
+}
