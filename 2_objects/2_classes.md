@@ -29,6 +29,15 @@
 
 # Colors
 
+```js
+const ryansColors = new Colors();
+ryansColors.addColor('red');
+ryansColors.addColor('blue');
+
+ryansColors.hasColor('blue');
+ryansColors.hasColor('green')
+```
+
 * Create a `Colors` class
 * colors has a `favorites` property
   * initialize `favorites` as an empty array
