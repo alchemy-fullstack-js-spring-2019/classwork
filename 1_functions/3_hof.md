@@ -7,6 +7,12 @@ to use a mock function to pass the higher-order
 function. Take a look at jest's
 [mock functions](https://jestjs.io/docs/en/mock-functions)
 
+```js
+document.getElementById('myId').addEventListener('click', () => {
+
+});
+```
+
 ## Number manipulator
 
 `numberManipulator` is a function that manipulates
@@ -15,6 +21,7 @@ we can double a number with it:
 
 ```js
 numberManipulator(5, n => n * 2);
+// 10
 ```
 
 OR

@@ -1,7 +1,8 @@
 const {
   evens,
   firstEven,
-  allEvens
+  allEvens,
+  addEvens
 } = require('./evens');
 
 describe('evens functions', () => {
@@ -22,6 +23,12 @@ describe('evens functions', () => {
 
     it('returns truce if all number are even', () => {
       expect(allEvens([3, 5, 8])).toBeFalsy();
+    });
+  });
+
+  describe('addEvens', () => {
+    it('returns all even numbers added together', () => {
+      expect(addEvens([1, 2, 3, 4, 5])).toEqual(6);
     });
   });
 });

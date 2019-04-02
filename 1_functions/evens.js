@@ -1,3 +1,5 @@
+const add = require('./add');
+
 const isEven = n => n % 2 === 0;
 
 // [1, 2, 3];
@@ -15,19 +17,24 @@ const firstEven = arr => arr.findIndex(isEven);
 // arrow functions on one line implicitly return
 const allEvens = arr => arr.every(isEven);
 
-
 // declaring a function
 // function allEvens(arr) {
-//   return arr.every(isEven)
+//   return arr.every(isEven);
 // }
 
 // expressing a function
+// not really used anymore
 // const allEvens = function (arr) {
-//   return arr.every(isEven)
+//   return arr.every(isEven);
 // }
+
+const addEvens = arr => {
+  return add(evens(arr));
+};
 
 module.exports = {
   evens,
   firstEven,
-  allEvens
+  allEvens,
+  addEvens
 };

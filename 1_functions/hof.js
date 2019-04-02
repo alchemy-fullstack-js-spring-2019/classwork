@@ -1,14 +1,26 @@
-// higher order function
-// takes a function as an argument
-function executor(fn) {
-  fn();
+function numberManipulator(n, callback) {
+  return callback(n);
 }
 
-// it returns a function
-function addN(n) {
-  return function(x) {
-    return n + x;
-  };
+function repeater(n, callback) {
+  // for(let i = 0; i < n; i++) {
+  //   callback();
+  // }
+
+  // let i = 0;
+  // while(i < n) {
+  //   callback();
+  //   i++;
+  // }
+
+
+  [...Array(n)]
+    .forEach(callback);
 }
 
-add(1)(2);
+
+
+module.exports = {
+  numberManipulator,
+  repeater
+};
