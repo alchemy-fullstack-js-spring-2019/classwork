@@ -31,11 +31,10 @@ const dog = {
   name: 'spot',
   age: 10,
   sayName() {
+    // let _this = this;
     // [s, p, o, t]
     // [10, 10, 10, 10]
-    return this.name.split('').map(letter => {
-      return this.age;
-    })
+    return this.name;
   }
 }
 
