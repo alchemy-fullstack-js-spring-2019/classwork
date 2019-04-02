@@ -15,4 +15,14 @@ describe('CAR.JS**car**', ()=>{
         car.drive(10);
         expect(car.miles).toBe(110);
     });
+    it('test to see that car has a static function that returns valid car makes', ()=>{
+        const validMakes = Car.makes();
+        expect(validMakes).toEqual(['Toyota', 'Ford']);
+       
+    });
+    it('making a car with invalid make will throw an eror', ()=>{
+        expect(()=>{
+            const car = new Car('apple', 'Tundra', '2019', 'Silver');
+        }).toThrow();    
+    });
 });
