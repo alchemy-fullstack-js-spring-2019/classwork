@@ -1,0 +1,17 @@
+{
+  "name": "3_callbacks",
+  "version": "1.0.0",
+  "description": "## Readings and Resources",
+  "main": "readFile.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "jest": "^24.7.0"
+  }
+}
