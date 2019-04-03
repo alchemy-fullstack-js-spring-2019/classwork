@@ -1,0 +1,29 @@
+{
+  "name": "classwork",
+  "version": "1.0.0",
+  "description": "## Day-by-Day",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:watch": "npm run test -- --watch",
+    "start": "node lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanpatches/classwork.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seanpatches/classwork/issues"
+  },
+  "homepage": "https://github.com/seanpatches/classwork#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "jest": "^24.6.0"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}
