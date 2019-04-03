@@ -15,9 +15,26 @@ describe('user id is generated automatically', ()=>{
         expect(user.uid).toEqual(expect.any(String));
     });
 });
-describe('USER.JS**', ()=>{
-    it('make sure that id is generated automatically', ()=>{
+describe('USER.JS**toString', ()=>{
+    it('using toString method print out name an email', ()=>{
         const user = new User('email@email.com', 'hank', '123123');
-        expect(user.uid).toEqual(expect.any(String));
+        expect(user.toString()).toEqual('hank | email@email.com');
+    });
+});
+describe('USER.JS**resetPassword', ()=>{
+    it('takes old password and new password, if old password == current password, reset password', ()=>{
+        const user = new User('email@email.com', 'hank', '123123');
+        const oldPassword = '123123';
+        const newPassword = '321321';
+        expect(user.resetPassword(oldPassword, newPassword)).toBe(newPassword);
+    });
+});
+describe('USER.JS**resetPassword', ()=>{
+    it('trying to reset password with wrong old password throws error', ()=>{
+        
+        expect(()=>{
+            const user = new User('email@email.com', 'hank', '123123');
+            user.resetPassword('12323', 'apple');
+        }).toThrow();
     });
 });
