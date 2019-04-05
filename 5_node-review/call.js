@@ -1,14 +1,14 @@
 doTaxes(taxForms, (err, refund) => {
-  if(err) prepareForAudit(() => {});
-  if(refund < 1000) return fireAccountant(() => {});
+  if (err) return  prepareForAudit(() => { });
+  if (refund < 1000) return fireAccountant(() => { });
   console.log('Great');
 });
 
 reserveTable('Jack Rabbit', 1, err => {
-  if(err) reserveTable('big kahuna burger', 1, err => {});
+  if (err) return reserveTable('big kahuna burger', 1, err => { });
 
   hireLyftDriver(() => {
-    takeASeat(() => {});
+    takeASeat(() => { });
   });
 });
 

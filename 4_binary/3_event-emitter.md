@@ -4,7 +4,7 @@
 
 * Create an `ee.js`
 * require EventEmitter
-  * `const EventEmitter = require('events');`
+  * `const { EventEmitter } = require('events');`
 * create a `const ee = new EventEmitter()`
 * listen to an event (e.g. `ee.on('we did it', () => {})`)
   * handle the event with a callback that `console.log('Yes we did')`
@@ -26,7 +26,7 @@
 
 * Create an `eeLetter.js`
 * require EventEmitter
-  * `const EventEmitter = require('events');`
+  * `const { EventEmitter } = require('events');`
 * create a `const ee = new EventEmitter()`
 * listen to an event (e.g. `ee.on('letter', data => {})`)
   * handle the event with a callback prints "RECEIVED: ${letter}"
