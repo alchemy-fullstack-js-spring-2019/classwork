@@ -5,15 +5,15 @@ module.exports = class LetterEmitter extends EventEmitter {
     super();
   }
   read(str) {
-    // [...str].forEach(letter, offset) =>
-    str.split('').forEach(letter => {
-      this.emit('letter', letter);
+    const pattern = /[a-z]/i;
+    [...str].forEach((letter, offset) => {
+      if(pattern.test(letter)) {
+        this.emit('letter', {
+          letter,
+          offset
+        });
+      }
     });
     this.emit('end');
   }
 };
-
-// letters.split turns to str.split()
-// ee.emit becomes this.emit
-
-
