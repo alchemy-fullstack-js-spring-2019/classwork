@@ -13,8 +13,8 @@
 * Static Methods
   * `race`
   * `all`
-  * `reject`
   * `resolve`
+  * `reject`
 * Instance methods
   * `then`
   * `catch`
