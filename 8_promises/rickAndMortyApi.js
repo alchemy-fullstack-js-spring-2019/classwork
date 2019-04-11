@@ -12,7 +12,7 @@ function getOriginForCharacters(characters) {
 
 // remove duplicates
 request
-  .get('https://rickandmortyapi.com/api/character/?')
+  .get('https://rickandmortyapi.com/api/character')
   .then(res => res.body.results)
   .then(getOriginForCharacters)
   // .then(characters => characters.map(character => character.origin.url))

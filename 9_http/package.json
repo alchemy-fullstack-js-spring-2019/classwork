@@ -1,0 +1,22 @@
+{
+  "name": "9_http",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Store.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:watch": "npm run test -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "jest": "^24.7.1",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}
