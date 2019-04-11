@@ -1,4 +1,3 @@
-const fs = require('fs');
 const fsPromises = require('fs').promises;
 const uuid = require('uuid/v4');
 
@@ -15,63 +14,41 @@ class Store {
       .then(() => objWithId);
   }
 
-  findById(_id, callback) {
-    fs.readFile(this.storedFilePath(_id), { encoding: 'utf8' }, (err, data) => {
-      try {
-        const obj = JSON.parse(data);
-        callback(err, obj);
-      } catch(e) {
-        callback(e);
-      }
-    });
+  findById(_id) {
+    return fsPromises.readFile(this.storedFilePath(_id), { encoding: 'utf8' })
+      .then(data => JSON.parse(data));
   }
 
-  find(callback) {
-    fs.readdir(this.rootDir, (err, listOfIds) => {
-      let count = listOfIds.length;
-      if(count < 1) return callback(err, []);
-
-      const items = [];
-      listOfIds.forEach(_id => {
-        this.findById(_id, (err, item) => {
-          count -= 1;
-          items.push(item);
-          if(count <= 0) callback(null, items);
-        });
+  find() {
+    return fsPromises.readdir(this.rootDir)
+      .then(ids => {
+        const findAllIds = ids.map(id => this.findById(id));
+        return Promise.all(findAllIds);
       });
-    });
   }
 
-  findByIdAndDelete(_id, callback) {
-    fs.unlink(this.storedFilePath(_id), err => {
-      callback(err, { deleted: 1 });
-    });
+  findByIdAndDelete(_id) {
+    return fsPromises.unlink(this.storedFilePath(_id))
+      .then(() => ({
+        deleted: 1
+      }));
   }
 
-  findByIdAndUpdate(_id, updatedObject, callback) {
-    this.findById(_id, err => {
-      if(err) return callback(err);
-      const objToWrite = { ...updatedObject, _id };
-      const objToWriteStr = JSON.stringify(objToWrite);
-      fs.writeFile(this.storedFilePath(_id), objToWriteStr, err => {
-        callback(err, objToWrite);
+  findByIdAndUpdate(_id, updatedObject) {
+    return this.findById(_id)
+      .then(foundItem => {
+        if(!foundItem) throw 'No Item exists';
+
+        return fsPromises.writeFile(this.storedFilePath(_id), JSON.stringify(updatedObject));
+      })
+      .then(() => updatedObject);
+  }
+
+  drop() {
+    return fsPromises.readdir(this.rootDir)
+      .then(files => {
+        return Promise.all(files.map(file => fsPromises.unlink(this.storedFilePath(file))));
       });
-    });
-  }
-
-  drop(callback) {
-    fs.readdir(this.rootDir, (err, files) => {
-      if(err) return callback(err);
-
-      let count = files.length;
-      if(count === 0) return callback();
-      files.forEach(file => {
-        fs.unlink(this.storedFilePath(file), () => {
-          count -= 1;
-          if(count <= 0) callback();
-        });
-      });
-    });
   }
 
   storedFilePath(_id) {
