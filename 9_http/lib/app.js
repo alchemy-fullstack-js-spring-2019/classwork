@@ -1,4 +1,5 @@
 const http = require('http');
+const request = require('superagent');
 const { parse } = require('url');
 
 // 200 - ok
@@ -13,19 +14,22 @@ const { parse } = require('url');
 // 503 - timeout
 
 const app = http.createServer((req, res) => {
+  res.send = json => res.end(JSON.stringify(json));
+
   const url = parse(req.url, true);
   console.log(url);
 
-  // good case for switch/case
-  if(url.pathname === '/birthday') {
-    res.end('Happy Birthday');
-  } else if(url.pathname === '') {
-    // respond a different way
-  } else {
-    // respond with not found
-    // how do you set the status code to 404
-    res.statusCode = 404;
-    res.end('Not Found');
+  if(url.pathname.includes('/character/')) {
+    const id = url.pathname.split('/')[2];
+    console.log(id);
+    request
+      .get(`https://rickandmortyapi.com/api/character/${id}`)
+      .then(res => ({
+        name: res.body.name,
+        status: res.body.status,
+        species: res.body.species
+      }))
+      .then(character => res.send(character));
   }
 });
 
