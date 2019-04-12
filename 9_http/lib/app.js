@@ -19,7 +19,10 @@ const notes = {};
 const app = http.createServer((req, res) => {
   res.send = json => res.end(JSON.stringify(json));
 
+  const withIdPattern = /\/people\/(?<id>[\w-]*)/;
+
   const url = parse(req.url, true);
+  res.setHeader('Content-Type', 'application/json');
   if(url.pathname === '/people' && req.method === 'POST') {
     bodyParser(req)
       .then(json => {
@@ -30,6 +33,15 @@ const app = http.createServer((req, res) => {
         });
       })
       .then(createdPerson => res.send(createdPerson));
+  } else if(url.pathname === '/people' && req.method === 'GET') {
+    People.find()
+      .then(people => res.send(people));
+    // } else if(url.pathname.includes('/people/')) {
+  } else if(withIdPattern.test(url.pathname)) {
+    const id = url.pathname.match(withIdPattern).groups.id;
+    // const id = url.pathname.split('/')[2];
+    People.findById(id)
+      .then(person => res.send(person));
   }
 
   // res.setHeader('Content-Type', 'application/json');
