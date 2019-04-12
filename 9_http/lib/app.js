@@ -1,5 +1,4 @@
 const http = require('http');
-const uuid = require('uuid/v4');
 const { parse } = require('url');
 const bodyParser = require('./body-parser');
 const People = require('./models/People');
@@ -15,50 +14,41 @@ const People = require('./models/People');
 // 500 - internal server error
 // 503 - timeout
 
-const notes = {};
 const app = http.createServer((req, res) => {
-  res.send = json => res.end(JSON.stringify(json));
-
-  const withIdPattern = /\/people\/(?<id>[\w-]*)/;
-
   const url = parse(req.url, true);
+
   res.setHeader('Content-Type', 'application/json');
+
   if(url.pathname === '/people' && req.method === 'POST') {
     bodyParser(req)
-      .then(json => {
-        return People.create({
-          name: json.name,
-          age: json.age,
-          color: json.color
-        });
+      .then(body => {
+        return People
+          .create({ name: body.name });
       })
-      .then(createdPerson => res.send(createdPerson));
+      .then(createdPerson => {
+        res.end(JSON.stringify(createdPerson));
+      });
   } else if(url.pathname === '/people' && req.method === 'GET') {
     People.find()
-      .then(people => res.send(people));
-    // } else if(url.pathname.includes('/people/')) {
-  } else if(withIdPattern.test(url.pathname)) {
-    const id = url.pathname.match(withIdPattern).groups.id;
-    // const id = url.pathname.split('/')[2];
+      .then(people => res.end(JSON.stringify(people)));
+  } else if(url.pathname.includes('/people/') && req.method === 'GET') {
+    // '/people/1234'
+    // ['', 'people', '1234']
+    const id = url.pathname.split('/')[2];
     People.findById(id)
-      .then(person => res.send(person));
+      .then(person => res.end(JSON.stringify(person)));
+  } else if(url.pathname.includes('/people/') && req.method === 'PUT') {
+    const id = url.pathname.split('/')[2];
+    bodyParser(req)
+      .then(body => {
+        return People.findByIdAndUpdate(id, { name: body.name });
+      })
+      .then(person => res.end(JSON.stringify(person)));
+  } else if(url.pathname.includes('/people/') && req.method === 'DELETE') {
+    const id = url.pathname.split('/')[2];
+    People.findByIdAndDelete(id)
+      .then(result => res.end(JSON.stringify(result)));
   }
-
-  // res.setHeader('Content-Type', 'application/json');
-  // if(url.pathname === 'note' && req.method === 'GET') {
-  //   res.send(notes);
-  // } else if(url.pathname === '/note' && req.method === 'POST') {
-  //   const id = uuid();
-  //   bodyParser(req)
-  //     .then(json => {
-  //       notes[id] = { ...json, id };
-  //       res.send(notes);
-  //     });
-  // } else if(url.pathname.includes('/character/')) {
-  //   const id = url.pathname.split('/')[2];
-  //   getCharacter(id)
-  //     .then(character => res.send(character));
-  // }
 });
 
 module.exports = app;

@@ -4,45 +4,83 @@ const People = require('../lib/models/People');
 
 jest.mock('../lib/service/rickAndMortyApi.js');
 
+// Create
+// Read
+// Update
+// Delete
+
 describe('app routes', () => {
-  afterAll(() => {
+  afterEach(() => {
     return People.drop();
   });
 
-  it('creates a person with /people', () => {
+  it('creates a person with the /people route', () => {
     return request(app)
       .post('/people')
-      .send({ name: 'ryan', age: 32, color: 'red' })
+      .send({ name: 'test' })
       .then(res => {
         expect(res.body).toEqual({
-          name: 'ryan',
-          age: 32,
-          color: 'red',
+          name: 'test',
           _id: expect.any(String)
         });
       });
   });
 
-  it('gets a list of all people with /people', () => {
-    return request(app)
-      .get('/people')
+  it('gets a list of people with the /people route', () => {
+    return People.create({
+      name: 'tester'
+    })
+      .then(() => {
+        return request(app)
+          .get('/people');
+      })
       .then(res => {
         expect(res.body).toHaveLength(1);
+        expect(res.body).toContainEqual({
+          name: 'tester',
+          _id: expect.any(String)
+        });
       });
   });
 
   it('gets a person by id', () => {
-    return People.create({ name: 'tester', age: 100, color: 'blue' })
-      .then(createdPerson => {
+    return People.create({ name: 'tester' })
+      .then(person => {
         return request(app)
-          .get(`/people/${createdPerson._id}`);
+          .get(`/people/${person._id}`);
       })
       .then(res => {
         expect(res.body).toEqual({
           name: 'tester',
-          age: 100,
-          color: 'blue',
           _id: expect.any(String)
+        });
+      });
+  });
+
+  it('updates a person by id', () => {
+    return People.create({ name: 'testter' })
+      .then(person => {
+        return request(app)
+          .put(`/people/${person._id}`)
+          .send({ name: 'tester' });
+      })
+      .then(res => {
+        expect(res.body).toEqual({
+          name: 'tester',
+          _id: expect.any(String)
+        });
+      });
+  });
+
+  it('deletes a person by id', () => {
+    return People.create({ name: 'tester' })
+      .then(person => {
+        return request(app)
+          .delete(`/people/${person._id}`);
+      })
+      .then(res => {
+        expect(res.body).toEqual({
+          deleted: 1
         });
       });
   });

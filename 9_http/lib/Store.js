@@ -41,7 +41,7 @@ class Store {
 
         return fsPromises.writeFile(this.storedFilePath(_id), JSON.stringify(updatedObject));
       })
-      .then(() => updatedObject);
+      .then(() => ({ ...updatedObject, _id }));
   }
 
   drop() {
