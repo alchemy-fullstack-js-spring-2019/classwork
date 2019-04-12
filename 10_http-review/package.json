@@ -1,0 +1,19 @@
+{
+  "name": "10_http-review",
+  "version": "1.0.0",
+  "description": "* Side by side fs functions   * callbacks   * streams   * promises * jest.mock * TCP * HTTP   * Methods / REST verbs   * status codes   * path vs pathname   * query strings * RegEx   * Character class     * \\w word     * \\d digit     * \\s whitespace     * . any character     * [^\\w] not word     * [abc] a, b, or c     * [a-z] a-z   * start/end (^/$)   * capture groups   * qualifiers   * with JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "superagent": "^5.0.2"
+  }
+}
