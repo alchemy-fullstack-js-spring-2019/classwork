@@ -4,14 +4,16 @@ const app = require('../lib/app');
 jest.mock('../lib/service/rickAndMortyApi.js');
 
 describe('app routes', () => {
-  it('respons with a character at /character/:id', () => {
+  it('creates a person with /people', () => {
     return request(app)
-      .get('/character/3')
+      .post('/people')
+      .send({ name: 'ryan', age: 32, color: 'red' })
       .then(res => {
         expect(res.body).toEqual({
-          name: 'Ryan',
-          status: 'Alive',
-          species: 'Human'
+          name: 'ryan',
+          age: 32,
+          color: 'red',
+          _id: expect.any(String)
         });
       });
   });
