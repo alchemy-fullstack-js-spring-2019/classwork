@@ -1,5 +1,7 @@
 const http = require('http');
-const request = require('superagent');
+const uuid = require('uuid/v4');
+const { getCharacter } = require('./service/rickAndMortyApi');
+const bodyParser = require('./body-parser');
 const { parse } = require('url');
 
 // 200 - ok
@@ -13,22 +15,23 @@ const { parse } = require('url');
 // 500 - internal server error
 // 503 - timeout
 
+const notes = {};
 const app = http.createServer((req, res) => {
   res.send = json => res.end(JSON.stringify(json));
 
   const url = parse(req.url, true);
-  console.log(url);
 
-  if(url.pathname.includes('/character/')) {
+  res.setHeader('Content-Type', 'application/json');
+  if(url.pathname === '/note' && req.method === 'POST') {
+    const id = uuid();
+    bodyParser(req)
+      .then(json => {
+        notes[id] = { ...json, id };
+        res.send(notes);
+      });
+  } else if(url.pathname.includes('/character/')) {
     const id = url.pathname.split('/')[2];
-    console.log(id);
-    request
-      .get(`https://rickandmortyapi.com/api/character/${id}`)
-      .then(res => ({
-        name: res.body.name,
-        status: res.body.status,
-        species: res.body.species
-      }))
+    getCharacter(id)
       .then(character => res.send(character));
   }
 });
