@@ -85,4 +85,17 @@ describe('app routes', () => {
       });
   });
 
+  it('creates a toy with the /toys route', () => {
+    return request(app)
+      .post('/toys')
+      .send({ type: 'truck', color: 'red' })
+      .then(res => {
+        expect(res.body).toEqual({
+          type: 'truck',
+          color: 'red',
+          _id: expect.any(String)
+        });
+      });
+  });
+
 });
