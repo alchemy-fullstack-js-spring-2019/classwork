@@ -8,7 +8,7 @@
 * Mob work / Lab
 * Retro
 
-## Step to setup repo
+## Steps to setup repo
 
 * Fork repo
 * clone forked repo
