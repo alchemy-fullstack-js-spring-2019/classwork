@@ -19,6 +19,7 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "superagent": "^5.0.2"
   }
 }

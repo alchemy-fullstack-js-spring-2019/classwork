@@ -1,15 +1,16 @@
 const { Router } = require('express');
 const Tweet = require('../models/Tweet');
+const futuramaQuote = require('../middleware/futurama-quote');
 
 module.exports = Router()
-  .post('/', (req, res, next) => {
+  .post('/', futuramaQuote, (req, res, next) => {
     const {
       handle,
       body
     } = req.body;
 
     Tweet
-      .create({ handle, body })
+      .create({ handle, body: body || req.quote })
       .then(createdTweet => {
         res.send(createdTweet);
       })
