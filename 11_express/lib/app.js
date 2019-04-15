@@ -5,6 +5,10 @@ const tweetsRoutes = require('./routes/tweets');
 // Express Middleware
 // Between an incoming request
 // and an outgoing response
+app.use((req, res, next) => {
+  console.log('you are in middleware');
+  next();
+});
 
 // Body Parser
 app.use(express.json());
