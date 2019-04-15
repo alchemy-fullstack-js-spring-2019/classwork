@@ -7,7 +7,7 @@ const tweetsRoutes = require('./routes/tweets');
 // and an outgoing response
 app.use((req, res, next) => {
   console.log(`[${req.method}] ${req.url}`);
-  next();
+  next('NOPE!!!');
 });
 
 // Body Parser
@@ -17,8 +17,12 @@ app.use(express.json());
 // go to tweetsRoutes
 app.use('/tweets', tweetsRoutes);
 
-app.use((req, res, next) => {
-  res.status(404).send({ error: 'Not Found' });
+// eslint-disable-next-line no-unused-vars
+app.use(require('./middleware/not-found'));
+
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+  res.status(500).send({ error: err });
 });
 
 module.exports = app;
