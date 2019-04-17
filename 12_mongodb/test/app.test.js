@@ -22,9 +22,12 @@ describe('tweet routes', () => {
   });
 
   it('can create a new tweet', () => {
-    return request(app)
-      .post('/tweets')
-      .send({ handle: 'ryan', body: 'my first tweet' })
+    return User.create({ handle: 'ryan', image: '' })
+      .then(user => {
+        return request(app)
+          .post('/tweets')
+          .send({ user: user._id, body: 'my first tweet' });
+      })
       .then(res => {
         expect(res.body).toEqual({
           handle: 'ryan',
