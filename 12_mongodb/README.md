@@ -33,10 +33,13 @@ time | topic
 10:45 - 11:15 | Solo mongoose select and lean
 11:15 - 12:00 | Mongoose model relationships demo
 12:00 - 1:00 | Lunch
-1:00 - 2:00 | Solo mongoose model relationships
-2:00 - 3:00 | Mongoose full demo
-3:00 - 5:45 | Mob ripe-banana
+1:00 - 5:45 | Solo mongoose model relationships
 5:45 - 6:00 | Retro
+
+## Day 3
+
+9:00 - 10:00 | Mongoose full demo
+10:00 - 5:45 | Mob ripe-banana
 
 ## Dependencies
 
