@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const request = require('supertest');
 const app = require('../lib/app');
 const Tweet = require('../lib/models/Tweet');
+const User = require('../lib/models/User');
 
 describe('tweet routes', () => {
   beforeAll(() => {
@@ -35,8 +36,10 @@ describe('tweet routes', () => {
   });
 
   it('can get a list of tweets', () => {
-    return Tweet
-      .create({ handle: 'ryan', body: 'my tweet' })
+    User.create({ handle: 'ryan', image: '' })
+      .then(user => {
+        return Tweet.create({ user: user._id, body: 'my tweet' });
+      })
       .then(() => {
         return request(app)
           .get('/tweets');
