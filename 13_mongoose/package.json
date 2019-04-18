@@ -9,6 +9,9 @@
     "start": "node server.js",
     "start:watch": "nodemon server.js"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,6 +22,7 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
+    "chance": "^1.0.18",
     "eslint": "^5.16.0",
     "jest": "^24.7.1",
     "nodemon": "^1.18.11",
