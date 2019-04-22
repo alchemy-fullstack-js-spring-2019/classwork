@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const JSONTransform = require('../utils/JSONTransform');
 const Employee = require('../models/Employee');
 
 module.exports = Router()
@@ -22,8 +23,19 @@ module.exports = Router()
         __v: false
       })
       .lean()
-      .then(employees => res.send(employees))
-      .catch(next);
+      .then(employee => res.send(employee));
+  })
+
+  .get('/stream', (req, res, next) => {
+    Employee
+      .find()
+      .select({
+        __v: false
+      })
+      .lean()
+      .cursor()
+      .pipe(new JSONTransform({ array: true }))
+      .pipe(res.type('json'));
   })
 
   .get('/:id', (req, res, next) => {
@@ -36,6 +48,7 @@ module.exports = Router()
         __v: false
       })
       .lean()
-      .then(employee => res.send(employee))
-      .catch(next);
+      .cursor()
+      .pipe(new JSONTransform())
+      .pipe(res.type('json'));
   });

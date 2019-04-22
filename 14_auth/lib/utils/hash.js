@@ -1,0 +1,3 @@
+const hash = password => {
+
+};
