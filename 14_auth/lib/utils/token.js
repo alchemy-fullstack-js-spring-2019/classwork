@@ -10,7 +10,7 @@ const tokenize = payload => {
 };
 
 const untokenize = token => {
-  // return the payload from the token
+  return jwt.verify(token, process.env.AUTH_SECRET).payload;
 };
 
 module.exports = {

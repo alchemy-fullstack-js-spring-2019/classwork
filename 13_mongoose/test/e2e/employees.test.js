@@ -37,6 +37,24 @@ describe('employee routes', () => {
       });
   });
 
+  it('gets an employee by id async', async() => {
+    const employee = await getEmployee();
+    const res = await request(app)
+      .get(`/api/v1/employees/${employee._id}`);
+
+    expect(res.body).toEqual({
+      _id: employee._id,
+      name: employee.name,
+      dob: employee.dob,
+      warehouse: {
+        _id: expect.any(String),
+        city: expect.any(String),
+        state: expect.any(String),
+        zipcode: expect.any(String)
+      }
+    });
+  });
+
   it('gets an employee by id', () => {
     return getEmployee()
       .then(employee => {

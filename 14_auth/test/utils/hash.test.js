@@ -9,6 +9,12 @@ describe('hashing functions', () => {
       });
   });
 
+  it('hashes a password async', async() => {
+    const hashedPassword = await hash('password');
+    expect(hashedPassword).toEqual(expect.any(String));
+    expect(hashedPassword).not.toEqual('password');
+  });
+
   it('can compare passwords', () => {
     const password = 'password';
 

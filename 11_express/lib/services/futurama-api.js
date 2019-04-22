@@ -6,16 +6,21 @@ function getQuote() {
     .then(res => res.body);
 }
 
-function getQuoteByCharacter(character) {
-  return request
-    .get(`futuramaapi.herokuapp.com/api/characters/${character}/1`)
-    .then(res => {
-      return {
-        character: res.body[0].character,
-        quote: res.body[0].quote,
-        image: res.body[0].image
-      };
-    });
+async function getQuoteByCharacter(character) {
+  const res = await request
+    .get(`futuramaapi.herokuapp.com/api/characters/${character}/1`);
+
+  const [one, two, three] = await Promise.all([
+    Promise.resolve(1),
+    Promise.resolve(2),
+    Promise.resolve(3)
+  ]);
+
+  return {
+    character: res.body[0].character,
+    quote: res.body[0].quote,
+    image: res.body[0].image
+  };
 }
 
 module.exports = {
