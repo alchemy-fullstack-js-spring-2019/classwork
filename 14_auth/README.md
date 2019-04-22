@@ -106,3 +106,16 @@ time | topic
     * create a new jwt
   * verify
     * decrypt a jwt
+
+## Dependencies
+
+* dev
+  * supertest
+  * jest
+  * eslint
+* dependencies
+  * express
+  * mongoose
+  * bcryptjs
+  * jsonwebtoken
+  * cookie-parser
