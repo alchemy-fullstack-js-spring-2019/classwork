@@ -1,0 +1,5 @@
+language: node_js
+node_js:
+ - “node”
+services: mongodb
+env: AUTH_SECRET=s3cret
