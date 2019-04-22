@@ -1,5 +1,4 @@
-const bcrypt = require('bcryptjs');
-const { hash } = require('../../lib/utils/hash');
+const { hash, compare } = require('../../lib/utils/hash');
 
 describe('hashing functions', () => {
   it('hashes a password', () => {
@@ -15,7 +14,7 @@ describe('hashing functions', () => {
 
     return hash(password)
       .then(hashedPassword => {
-        return bcrypt.compare('password', hashedPassword);
+        return compare('password', hashedPassword);
       })
       .then(compareResult => {
         expect(compareResult).toBeTruthy();
@@ -27,7 +26,7 @@ describe('hashing functions', () => {
 
     return hash(password)
       .then(hashedPassword => {
-        return bcrypt.compare('password123', hashedPassword);
+        return compare('password123', hashedPassword);
       })
       .then(compareResult => {
         expect(compareResult).toBeFalsy();
