@@ -10,4 +10,16 @@ const userSchema = new mongoose.Schema({
   passwordHash: String
 });
 
+userSchema.virtual('password').set(function(passwordText) {
+  this._tempPassword = passwordText;
+});
+
+userSchema.pre('save', function(next) {
+  hash(this._tempPassword)
+    .then(hashedPassword => {
+      this.passwordHash = hashedPassword;
+      next();
+    });
+});
+
 module.exports = mongoose.model('User', userSchema);

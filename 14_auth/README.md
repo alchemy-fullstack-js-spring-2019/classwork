@@ -36,20 +36,25 @@ time | topic
 time | topic
 --- | ---
 9:00 - 9:30 | Review yesterday
-9:30 - 10:00 | Solo create user model
-10:00 - 10:15 | Break
-10:15 - 10:45 | Intro to mongoose virtual and middleware/hooks
-10:45 - 11:30 | Solo add password to user model
-11:30 - 12:00 | Intro mongoose methods (static vs instance)
+9:30 - 9:45 | Intro to mongoose virtual and middleware/hooks
+9:45 - 10:00 | Break
+10:00 - 10:30 | Solo add password to user model
+10:30 - 11:00 | Intro mongoose methods (static vs instance)
+11:00 - 11:30 | Solo create compare and authToken method
+11:30 - 12:00 | Solo create findByToken method
 12:00 - 1:00 | Lunch
-1:00 - 1:45 | Solo create compare and authToken method
-1:45 - 2:00 | Review static vs instance methods
-2:00 - 2:15 | Break
-2:15 - 3:00 | Solo create findByToken method
-3:00 - 3:30 | Intro custom toJSON transformer
-3:30 - 4:00 | Solo custom toJSON to remove passwordHash and __v
-4:00 - 4:30 | Intro auth routes
-4:30 - 5:00 | Solo auth routes
+1:00 - 1:30 | Review static vs instance methods
+1:30 - 1:45 | Intro custom toJSON transformer
+1:45 - 2:00 | Break
+2:00 - 2:15 | Solo custom toJSON to remove passwordHash and __v
+2:15 - 2:30 | Intro auth routes signup
+2:30 - 2:45 | Break
+2:45 - 3:00 | Solo auth routes signup
+3:00 - 3:15 | Intro auth routes signin
+3:15 - 3:30 | Solo auth routes signin
+3:30 - 3:45 | Break
+3:45 - 4:15 | Intro auth routes middleware
+4:15 - 5:00 | Solo auth routes middleware
 5:00 - 5:45 | catch-up
 5:45 - 6:00 | Retro
 
@@ -58,7 +63,7 @@ time | topic
 time | topic
 --- | ---
 9:00 - 9:30 | Mongo queries
-9:30 - 5:45 | Mob notes
+9:30 - 5:45 | Mob Tardygram
 5:45 - 6:00 | Retro
 
 ### Day 4
