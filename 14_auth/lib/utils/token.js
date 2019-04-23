@@ -10,7 +10,11 @@ const tokenize = payload => {
 };
 
 const untokenize = token => {
-  return jwt.verify(token, process.env.AUTH_SECRET).payload;
+  try {
+    return jwt.verify(token, process.env.AUTH_SECRET).payload;
+  } catch(err) {
+    throw 'Bogus Token';
+  }
 };
 
 module.exports = {

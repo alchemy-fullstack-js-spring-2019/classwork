@@ -28,17 +28,6 @@ describe('jwt token', () => {
   });
 
   it('can untokenize a bogus token', () => {
-    const token = tokenize({
-      name: 'spot',
-      age: 12
-    });
-
-    const obj = untokenize(token);
-
-    expect(obj).toEqual({
-      name: 'spot',
-      age: 12
-    });
-
+    expect(() => untokenize('12345')).toThrow('Bogus Token');
   });
 });
