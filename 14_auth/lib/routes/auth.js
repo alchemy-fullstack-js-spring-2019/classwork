@@ -34,16 +34,16 @@ module.exports = Router()
         return Promise.all([
           Promise.resolve(user),
           user.compare(password)
-        ]);
-      })
-      .then(([user, result]) => {
-        if(!result) {
-          const error = new Error('Invalid authentication');
-          error.status = 401;
-          next(error);
-        } else {
-          res.send({ token: user.authToken(), user });
-        }
+        ])
+          .then(([user, result]) => {
+            if(!result) {
+              const error = new Error('Invalid authentication');
+              error.status = 401;
+              next(error);
+            } else {
+              res.send({ token: user.authToken(), user });
+            }
+          });
       });
   })
 
