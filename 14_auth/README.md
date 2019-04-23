@@ -37,24 +37,20 @@ time | topic
 --- | ---
 9:00 - 9:30 | Review yesterday
 9:30 - 10:00 | Solo add password to user model
-10:00 - 10:15 | Break
-10:15 - 10:30 | Intro custom toJSON transformer
-10:30 - 11:00 | Solo custom toJSON to remove passwordHash and __v
-11:00 - 11:15 | Intro mongoose methods (static vs instance)
-11:15 - 12:00 | Solo create compare and authToken method
+10:00 - 10:10 | Intro custom toJSON transformer
+10:10 - 11:20 | Intro mongoose methods (static vs instance)
+10:20 - 11:00 | Solo create compare and authToken method
+11:00 - 11:15 | Review static vs instance methods
+11:15 - 11:30 | Solo create findByToken method
+11:30 - 12:00 | Intro auth routes signup
 12:00 - 1:00 | Lunch
-1:00 - 1:30 | Solo create findByToken method
-1:30 - 1:45 | Review static vs instance methods
-1:45 - 2:00 | Break
-2:15 - 2:30 | Intro auth routes signup
-2:30 - 2:45 | Break
-2:45 - 3:00 | Solo auth routes signup
-3:00 - 3:15 | Intro auth routes signin
-3:15 - 3:30 | Solo auth routes signin
-3:30 - 3:45 | Break
-3:45 - 4:15 | Intro auth routes middleware
-4:15 - 5:00 | Solo auth routes middleware
-5:00 - 5:45 | catch-up
+1:00 - 1:30 | Solo auth routes signup
+1:30 - 2:00 | Intro auth routes signin
+2:00 - 2:15 | Break
+2:15 - 2:30 | Solo auth routes signin
+2:30 - 2:45 | Intro auth routes middleware
+2:45 - 3:15 | Solo auth routes middleware
+3:15 - 5:45 | Mob Tardygram
 5:45 - 6:00 | Retro
 
 ### Day 3
@@ -62,24 +58,26 @@ time | topic
 time | topic
 --- | ---
 9:00 - 9:30 | Mongo queries
-9:30 - 5:45 | Mob Tardygram
+9:30 - 1:00 | Mob Tardygram
+1:00 - 1:30 | Intro aggregation
+1:30 - 2:00 | Aggregate notes by author
+2:00 - 2:15 | Break
+2:15 - 3:45 | Aggregate notes by author lookup author
+3:45 - 4:15 | Review aggregation
+4:15 - 5:00 | Aggregate average note length
+5:00 - 5:45 | Enron aggregations
 5:45 - 6:00 | Retro
 
 ### Day 4
 
 time | topic
 --- | ---
-9:00 - 9:30 | Intro aggregation
-9:30 - 10:00 | Aggregate notes by author
-10:00 - 10:15 | Break
-10:15 - 10:45 | Aggregate notes by author lookup author
-10:45 - 11:15 | Review aggregation
-11:15 - 12:00 | Aggregate average note length
+9:00 - 9:30 | Aggregation review
+9:30 - 11:30 | Enron aggregations
+11:30 - 12:00 | Intro adding aggregations with mongoose
 12:00 - 1:00 | Lunch
-1:00 - 3:00 | Enron aggregations
-3:00 - 3:15 | Break
-3:15 - 3:45 | Intro adding aggregations with mongoose
-3:45 - 5:45 | Mob add aggregations to notes
+1:00 - 1:30 | Inquirer
+1:30 - 5:45 | Mob add aggregations to notes
 5:45 - 6:00 | Retro
 
 ## Agenda
