@@ -21,4 +21,16 @@ describe('User model', () => {
 
     expect(user._tempPassword).toEqual('password123');
   });
+
+  it('adds a username', () => {
+    const user = new User({
+      email: 'test@test.com',
+      passwordHash: '1234'
+    });
+
+    expect(user.toJSON()).toEqual({
+      _id: expect.any(mongoose.Types.ObjectId),
+      email: 'test@test.com'
+    });
+  });
 });

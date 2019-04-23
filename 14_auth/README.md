@@ -36,17 +36,16 @@ time | topic
 time | topic
 --- | ---
 9:00 - 9:30 | Review yesterday
-9:30 - 9:45 | Intro to mongoose virtual and middleware/hooks
-9:45 - 10:00 | Break
-10:00 - 10:30 | Solo add password to user model
-10:30 - 11:00 | Intro mongoose methods (static vs instance)
-11:00 - 11:30 | Solo create compare and authToken method
-11:30 - 12:00 | Solo create findByToken method
+9:30 - 10:00 | Solo add password to user model
+10:00 - 10:15 | Break
+10:15 - 10:30 | Intro custom toJSON transformer
+10:30 - 11:00 | Solo custom toJSON to remove passwordHash and __v
+11:00 - 11:15 | Intro mongoose methods (static vs instance)
+11:15 - 12:00 | Solo create compare and authToken method
 12:00 - 1:00 | Lunch
-1:00 - 1:30 | Review static vs instance methods
-1:30 - 1:45 | Intro custom toJSON transformer
+1:00 - 1:30 | Solo create findByToken method
+1:30 - 1:45 | Review static vs instance methods
 1:45 - 2:00 | Break
-2:00 - 2:15 | Solo custom toJSON to remove passwordHash and __v
 2:15 - 2:30 | Intro auth routes signup
 2:30 - 2:45 | Break
 2:45 - 3:00 | Solo auth routes signup
