@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { ensureAuth } = require('../middleware/ensureAuth');
 const User = require('../models/User');
 
 module.exports = Router()
@@ -44,4 +45,8 @@ module.exports = Router()
           res.send({ token: user.authToken(), user });
         }
       });
+  })
+
+  .get('/verify', ensureAuth, (req, res, next) => {
+    res.send(req.user);
   });
