@@ -32,5 +32,8 @@ describe('User model', () => {
       _id: expect.any(mongoose.Types.ObjectId),
       email: 'test@test.com'
     });
+
+    expect(user.banana(100)).toEqual('banana100');
+    expect(User.apple()).toEqual('apple');
   });
 });
