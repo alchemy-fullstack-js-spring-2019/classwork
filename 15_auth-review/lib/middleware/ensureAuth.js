@@ -1,16 +1,8 @@
 const User = require('../models/User');
 
-const bearerToken = (req, res, next) => {
-  const headerValue = req.get('Authorization') || '';
-  const token = headerValue.replace(/Bearer\s/i, '');
-
-  req.token = token;
-  next();
-};
-
-const ensureAuth = (req, res, next) => {
+module.exports = (req, res, next) => {
   return User
-    .findByToken(req.token)
+    .findByToken(req.cookies.session)
     .then(user => {
       if(!user) {
         const error = new Error('Invalid token');
@@ -21,9 +13,4 @@ const ensureAuth = (req, res, next) => {
       req.user = user;
       next();
     });
-};
-
-module.exports = {
-  bearerToken,
-  ensureAuth
 };
