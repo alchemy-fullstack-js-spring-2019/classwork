@@ -23,6 +23,17 @@ module.exports = Router()
       password
     } = req.body;
 
+    User.signin(email, password)
+      .then(user => {
+        if(!user) {
+          const error = new Error('Invalid authentication');
+          error.status = 401;
+          return next(error);
+        }
+        res.send(user)
+      })
+      .catch(next)
+
     User
       .findOne({ email })
       .then(user => {

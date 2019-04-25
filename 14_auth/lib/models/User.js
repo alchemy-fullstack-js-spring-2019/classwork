@@ -8,14 +8,18 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  passwordHash: String
+  passwordHash: {
+    type: String,
+    select: false
+  }
 }, {
   toJSON: {
     transform: function(doc, ret) {
       delete ret.passwordHash;
       delete ret.__v;
     }
-  }
+  },
+  versionKey: false
 });
 
 userSchema.virtual('password').set(function(passwordText) {
@@ -49,5 +53,18 @@ userSchema.methods.authToken = function() {
 userSchema.statics.findByToken = function(token) {
   return Promise.resolve(untokenize(token));
 };
+
+userSchema.statics.signin = function(email, password) {
+  return this
+    .findOne({ email })
+    .then(user => {
+      if(!user) return null
+      return user.compare(password)
+        .then(result => {
+          if(!result) return null
+          return user
+        })
+    })
+}
 
 module.exports = mongoose.model('User', userSchema);
