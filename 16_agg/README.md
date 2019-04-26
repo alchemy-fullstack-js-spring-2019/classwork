@@ -24,3 +24,4 @@ Stage | Description
 `$lookup` | Lookup a document in another collection
 `$match` | Filter documents
 `$limit` | Return only a subset of documents
+`$project` | Change the fields in a document

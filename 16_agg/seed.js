@@ -18,15 +18,45 @@ const tweetSchema = new mongoose.Schema({
   tags: [String]
 });
 
+tweetSchema.statics.topTags = function() {
+  return this.aggregate([
+    {
+      '$unwind': '$tags'
+    },
+    {
+      '$group': {
+        '_id': '$tags',
+        'count': {
+          '$sum': 1
+        },
+        'people': {
+          '$push': '$handle'
+        }
+      }
+    },
+    {
+      '$sort': {
+        'count': -1
+      }
+    },
+    {
+      '$limit': 3
+    }
+  ]);
+};
+
 const Tweet = mongoose.model('Tweet', tweetSchema);
 
-Tweet
-  .create([
-    { handle: 'ryan', text: 'hi there', tags: ['hot', 'fast'] },
-    { handle: 'ryan', text: 'hi there', tags: ['good', 'hot'] },
-    { handle: 'ryan', text: 'hi there', tags: ['bad', 'good'] },
-    { handle: 'ryan', text: 'hi there', tags: ['hot', 'ready'] },
-    { handle: 'ryan', text: 'hi there', tags: ['icecold', 'redhot'] },
-    { handle: 'ryan', text: 'hi there', tags: ['hot', 'no'] },
-  ])
+// Tweet
+//   .create([
+//     { handle: 'ryan', text: 'hi there', tags: ['hot', 'fast'] },
+//     { handle: 'ryan', text: 'hi there', tags: ['good', 'hot'] },
+//     { handle: 'ryan', text: 'hi there', tags: ['bad', 'good'] },
+//     { handle: 'ryan', text: 'hi there', tags: ['hot', 'ready'] },
+//     { handle: 'ryan', text: 'hi there', tags: ['icecold', 'redhot'] },
+//     { handle: 'ryan', text: 'hi there', tags: ['hot', 'no'] },
+//   ])
+
+Tweet.topTags()
+  .then(console.log)
   .finally(() => mongoose.connection.close());
