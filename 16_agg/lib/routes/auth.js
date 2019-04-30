@@ -23,17 +23,6 @@ module.exports = Router()
       password
     } = req.body;
 
-    User.signin(email, password)
-      .then(user => {
-        if(!user) {
-          const error = new Error('Invalid authentication');
-          error.status = 401;
-          return next(error);
-        }
-        res.send(user);
-      })
-      .catch(next);
-
     User
       .findOne({ email })
       .then(user => {
@@ -42,6 +31,7 @@ module.exports = Router()
           error.status = 401;
           return next(error);
         }
+
         return Promise.all([
           Promise.resolve(user),
           user.compare(password)
@@ -55,7 +45,8 @@ module.exports = Router()
               res.send({ token: user.authToken(), user });
             }
           });
-      });
+      })
+      .catch(next);
   })
 
   .get('/verify', ensureAuth, (req, res, next) => {

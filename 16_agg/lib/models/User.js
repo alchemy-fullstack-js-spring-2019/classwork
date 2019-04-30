@@ -10,7 +10,6 @@ const userSchema = new mongoose.Schema({
   },
   passwordHash: {
     type: String,
-    select: false
   }
 }, {
   toJSON: {
@@ -52,19 +51,6 @@ userSchema.methods.authToken = function() {
 
 userSchema.statics.findByToken = function(token) {
   return Promise.resolve(untokenize(token));
-};
-
-userSchema.statics.signin = function(email, password) {
-  return this
-    .findOne({ email })
-    .then(user => {
-      if(!user) return null;
-      return user.compare(password)
-        .then(result => {
-          if(!result) return null;
-          return user;
-        });
-    });
 };
 
 module.exports = mongoose.model('User', userSchema);

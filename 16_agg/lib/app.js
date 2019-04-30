@@ -11,6 +11,7 @@ app.use(express.json());
 
 app.use(bearerToken);
 app.use('/api/v1/auth', mongoConnection, require('./routes/auth'));
+app.use('/api/v1/posts', mongoConnection, require('./routes/posts'));
 
 app.use(require('./middleware/not-found'));
 app.use(require('./middleware/error'));
