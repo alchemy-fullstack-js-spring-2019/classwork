@@ -216,8 +216,10 @@ const Person = mongoose.model('Person', personSchema);
 
 * validate
 * save
+  * User.create
 * remove
 * init
+  * new User()
 
 ##### Mongoose Query Middleware
 
@@ -282,6 +284,7 @@ const Person = mongoose.model('Person', personSchema);
 Person
   .find()
   .populate('dog')
+  .populate('cat')
   .then(people => {
 
   })

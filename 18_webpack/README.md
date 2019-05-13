@@ -15,7 +15,7 @@
 * `npm i -D style-loader css-loader url-loader file-loader`
 * `npm i -D postcss-loader postcss-nested autoprefixer`
 * `npm i -D html-webpack-plugin clean-webpack-plugin`
-* `npm i -D identity-obj-proxy`
+* `npm i -D jest identity-obj-proxy`
 
 ## Single Page Apps
 
