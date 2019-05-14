@@ -32,7 +32,7 @@ export default class Dog extends PureComponent {
         <dt>Weight</dt>
         <dd>{this.props.weight}</dd>
       </dl>
-    )
+    );
   }
 }
 ```
@@ -71,7 +71,7 @@ export default class Dog extends PureComponent {
         <dt>Weight</dt>
         <dd>{this.props.weight}</dd>
       </dl>
-    )
+    );
   }
 }
 ```
@@ -92,7 +92,8 @@ document
 ### Class Component Event Handlers
 
 ```js
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Button extends PureComponent {
 
@@ -107,7 +108,7 @@ export default class Button extends PureComponent {
   render() {
     return (
       <button onClick={this.clickHandler}>{this.props.title}</title>
-    )
+    );
   }
 }
 ```

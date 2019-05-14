@@ -1,16 +1,5 @@
 # React State Exercises
 
-## Create and render an Incrementer component
-
-Demo [Simple Incrementer](http://demo.alchemycodelab.io/simple-incrementer)
-
-* create a `Incrementer` component
-  * use state to keep track of the `count` of button presses
-  * display the current button presses `count`
-  * create a button that increments `count`
-* create an `App` component that uses your `Incrementer` component
-* create an `index.js` that renders your `App` component
-
 ## Create and render a ColorPicker component
 
 Demo [Simple Color Picker Disploy](http://demo.alchemycodelab.io/simple-color-picker-display)
@@ -28,6 +17,17 @@ Demo [Simple Color Picker Disploy](http://demo.alchemycodelab.io/simple-color-pi
   * add a css stylesheet and import it instead of using inline styles
   * Pass an array of colors as a property to your `ColorPicker`
   * display a button for each color in the array
+
+## Create and render an Incrementer component
+
+Demo [Simple Incrementer](http://demo.alchemycodelab.io/simple-incrementer)
+
+* create a `Incrementer` component
+  * use state to keep track of the `count` of button presses
+  * display the current button presses `count`
+  * create a button that increments `count`
+* create an `App` component that uses your `Incrementer` component
+* create an `index.js` that renders your `App` component
 
 ## Create and render a ColorPicker and ColorDisplay component
 

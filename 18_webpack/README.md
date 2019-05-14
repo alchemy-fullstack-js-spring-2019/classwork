@@ -70,7 +70,7 @@ To specify where the bundle is saved provided an `output` key.
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: './dist/main.js'
+    filename: './main.js'
   }
 };
 ```
@@ -223,7 +223,7 @@ Plugin | Behavior
 `clean-webpack-plugin` | Delete old bundle files
 `dotenv-webpack` | Import environment from a `.env` file
 
-Plugins allow us to customize the webpack bulid process. Plugins are added
+Plugins allow us to customize the webpack build process. Plugins are added
 with a `plugins` field.
 
 ```js

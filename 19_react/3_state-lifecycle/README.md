@@ -22,7 +22,7 @@ State can be accessed using `this.state`
 import React, { PureComponent } from 'react'
 
 export default class Dog extends PureComponent {
-  this.state = {
+  state = {
     name: 'spot',
     weight: '20 lbs',
     age: 5
@@ -51,7 +51,7 @@ Unlike properties state can be updated using `this.setState`
 import React, { PureComponent } from 'react'
 
 export default class Dog extends PureComponent {
-  this.state = {
+  state = {
     name: 'spot',
     weight: '20 lbs',
     age: 5
@@ -88,7 +88,7 @@ a function to `this.setState`
 import React, { PureComponent } from 'react'
 
 export default class Dog extends PureComponent {
-  this.state = {
+  state = {
     name: 'spot',
     weight: '20 lbs',
     age: 5
@@ -139,7 +139,7 @@ Method | Description
 import React, { PureComponent } from 'react'
 
 export default class Dog extends PureComponent {
-  this.state = {
+  state = {
     name: 'spot',
     weight: '20 lbs',
     age: 5

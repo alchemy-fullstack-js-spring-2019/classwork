@@ -184,8 +184,12 @@ function Dog({ name, age, weight }) {
       <dt>Age</dt>
       <dd>{age}</dd>
 
-      {weight && <dt>Weight</dt>
-      <dd>{weight}</dd>}
+      {weight && (
+        <>
+          <dt>Weight</dt>
+          <dd>{weight}</dd>
+        </>
+      )}
     </dl>
   )
 }
@@ -193,7 +197,7 @@ function Dog({ name, age, weight }) {
 Dog.propTypes = {
   name: PropTypes.string.isRequired,
   age: PropTypes.number.isRequired,
-  weight: PropTypes.string.isRequired
+  weight: PropTypes.string
 }
 
 export default Dog;
