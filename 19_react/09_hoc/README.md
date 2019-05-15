@@ -184,11 +184,116 @@ export default function App() {
 ```js
 import React from 'react';
 
-export const withLoader = (Component, Loader = <h1>Loading</h1>) => {
+function DefaultLoader() {
+  return <h1>Loading</h1>;
+}
+
+export const withLoader = (Component, Loader = DefaultLoader) => {
   return function WithLoader(props) {
     const { loading, ...rest } = props;
 
-    if(loading) return <hi
+    if(loading) return <Loader ...rest />;
+
+    return <Component ...rest />
   }
 }
+```
+
+```js
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import withLoading from '../../components/withLoading';
+import Quotes from '../../components/quotes/Quotes';
+import Loading from '../../components/Loading'
+import { getQuotes } from '../../services/futuramaApi.js';
+
+const LoadingQuotes = withLoading(Quotes, Loading);
+
+export default class TopQuotes extends PureComponent {
+  static propTypes = {
+    count: PropTypes.number
+  }
+
+  static defaultProps = {
+    count: 10
+  }
+
+  state = {
+    quotes: [],
+    loading: true
+  }
+
+  fetchQuotes = () => {
+    this.setState({ loading: true })
+    getQuotes(this.props.count)
+      .then(quotes => this.setState({ quotes, loading: false }));
+  }
+
+  componentDidMount() {
+    this.fetchQuotes();
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.count  !== this.props.count) {
+      this.fetchQuotes();
+    }
+  }
+
+  render() {
+    const props = { ...this.state }
+    return <LoadingQuotes ...props />;
+  }
+}
+```
+
+```js
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+export const withFetch = (fetchFn, initialState, key = 'results') => Component => {
+  class WithFetch extends Component {
+    static propTypes = {
+      page: PropTypes.string.isRequired
+    }
+
+    state = {
+      results: initialState,
+      loading: false
+    }
+
+    fetch = () => {
+      this.setState({ loading: true });
+      fetchFn(this.props.page)
+        .then(results => this.setState({ results, loading: false }))
+    }
+
+    componentDidMount() {
+      this.fetch();
+    }
+
+    componentDidUpdate(prevProps) {
+      if(prevProps.page !== this.props.page) {
+        this.fetch();
+      }
+    }
+
+    render() {
+      const { results, loading } = this.state;
+      const props = { [key]: results, loading, ...this.props };
+      return <Component ...props />;
+    }
+  }
+}
+```
+
+```js
+import React from 'react';
+import Characters from '../../components/characters/Characters';
+import withLoading from '../../components/withLoading';
+import withFetch from '../../components/withFetch';
+import Loading from '../../components/Loading';
+import { getCharacters } from '../../services/rickAndMortyApi';
+
+const LoadingCharacters = withLoading(Characters, Loading);
+export default withFetch(getCharacters, [], 'characters')(LoadingCharacters);
 ```

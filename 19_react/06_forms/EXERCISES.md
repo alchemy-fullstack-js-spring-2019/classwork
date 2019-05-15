@@ -25,6 +25,7 @@ Demo [Simple Colors Form](https://demo.alchemycodelab.io/simple-colors-form)
   * a color has name, hex, and rgb
   * for each color in the array create a `Color` component
   * display all `Color` components in a ul
-* create an `App` component
-  * store a list of colors in `App` state
+* create a `ColorList` container that holds your state
+  * store a list of colors in `ColorList` state
+* create an `App` component that uses `ColorList`
 * create an `index.js` that renders your `App` component
