@@ -2,6 +2,8 @@
 
 ## Create a color routes application
 
+Demo [Simple Color Routes](http://demo.alchemycodelab.io/simple-color-routes)
+
 * create a `Red` component that displays a red splotch
 * create a `Blue` component that displays a blue splotch
 * create a `Yellow` component that displays a yellow splotch
