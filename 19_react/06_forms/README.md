@@ -2,12 +2,27 @@
 
 ## Agenda
 
+* Components
+  * Container Components
+  * Presentational Components
 * Controlled Components
 * Abstract Form Handler
 
 ## Resources
 
 * [Forms](https://reactjs.org/docs/forms.html)
+
+## Components
+
+### Container Components
+
+As a rule of thumb, container components are stateful (class)
+components which deal how things work.
+
+### Presentational Components
+
+As a rule of thumb, presentational components are stateless
+functional components which deal with how things look.
 
 ## Controlled Components
 
@@ -88,7 +103,7 @@ import React, { PureComponent } from 'react';
 
 export default class CreateDog extends PureComponent {
   state = {
-    name: '',
+    dogName: '',
     age: 0,
     weight: ''
   }
@@ -111,7 +126,7 @@ export default class CreateDog extends PureComponent {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <input name="name" value={name} onChange={this.handleChange} />
+        <input name="dogName" value={name} onChange={this.handleChange} />
         <input name="age" value={age} onChange={this.handleChange} />
         <input name="weight" value={weight} onChange={this.handleChange} />
         <button>Create Dog</button>

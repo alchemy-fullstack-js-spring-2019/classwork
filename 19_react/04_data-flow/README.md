@@ -4,9 +4,6 @@
 
 * Data Down
 * Events Up
-* Components
-  * Container Components
-  * Presentational Components
 
 ## Resources
 
@@ -113,15 +110,3 @@ export default class Count extends PureComponent {
   }
 }
 ```
-
-## Components
-
-### Container Components
-
-As a rule of thumb, container components are stateful (class)
-components which deal how things work.
-
-### Presentational Components
-
-As a rule of thumb, presentational components are stateless
-functional components which deal with how things look.

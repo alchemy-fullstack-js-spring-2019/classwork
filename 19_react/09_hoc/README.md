@@ -60,6 +60,9 @@ console.log(add5(10)); // 15
 
 ### Closures
 
+Closures enclose an environment with a function. This mean we
+can store state across function invocation.
+
 ```js
 function counter() {
   let count = 0;
@@ -74,6 +77,12 @@ console.log(myCounter()); // 1
 console.log(myCounter()); // 2
 console.log(myCounter()); // 3
 ```
+
+Above we created a `counter` function with stores a count and
+returns a function that can access the count. On every invocation
+we increment the count and return its new value.
+
+We can also use closures to create a simple cache.
 
 ```js
 function factorial(n) {
@@ -102,6 +111,10 @@ cFactorial(5); // this will call factorial(5)
 cFactorial(5); // this will NOT call factorial(5)
 ```
 
+Above we create a cache object. We then return a function that takes
+`n`. If the cache has a key `n` then we return that value. Otherwise,
+we call `factorial(n)` and store that result in our cache.
+
 ### Higher order components
 
 Higher order components (HOCs) are functions that take components
@@ -113,7 +126,7 @@ import React from 'react;
 
 export const withTitle = Component => title => {
   return function WithTitle(props) {
-    return <Component title={title} ...props />
+    return <Component title={title} {...props} />
   }
 }
 ```
@@ -181,6 +194,9 @@ export default function App() {
 }
 ```
 
+Similarly, we can create a HOC that will conditionally display
+a loading component if a loading property is true.
+
 ```js
 import React from 'react';
 
@@ -192,12 +208,16 @@ export const withLoader = (Component, Loader = DefaultLoader) => {
   return function WithLoader(props) {
     const { loading, ...rest } = props;
 
-    if(loading) return <Loader ...rest />;
+    if(loading) return <Loader {...rest} />;
 
-    return <Component ...rest />
+    return <Component {...rest} />
   }
 }
 ```
+
+Our HOC above takes two arguments. The first parameter, `Component` is the
+component we want to render when not loading. The second parameter, `Loader`
+is the component that we want to render when loading.
 
 ```js
 import React, { PureComponent } from 'react';
@@ -241,16 +261,18 @@ export default class TopQuotes extends PureComponent {
 
   render() {
     const props = { ...this.state }
-    return <LoadingQuotes ...props />;
+    return <LoadingQuotes {...props} />;
   }
 }
 ```
+
+We can also make a `withFetch` HOC that will fetch from an API.
 
 ```js
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export const withFetch = (fetchFn, initialState, key = 'results') => Component => {
+export const withFetch = (fetchFn, initialState, key = 'results') => Comp => {
   class WithFetch extends Component {
     static propTypes = {
       page: PropTypes.string.isRequired
@@ -280,11 +302,22 @@ export const withFetch = (fetchFn, initialState, key = 'results') => Component =
     render() {
       const { results, loading } = this.state;
       const props = { [key]: results, loading, ...this.props };
-      return <Component ...props />;
+      return <Comp {...props} />;
     }
   }
+
+  return WithFetch;
 }
 ```
+
+Above, we pass our HOC a few different arguments:
+
+Argument name | Argument purpose
+------------- | ----------------
+`fetchFn` | service used to fetch from an API
+`initialState` | the initial value of our state (probably an array or object)
+`key` | the name of the property we should pass the API result as to `Comp`
+`Comp` | the component we should render with the results from the API
 
 ```js
 import React from 'react';
