@@ -9,7 +9,7 @@ Demo [Simple Sidebar](https://demo.alchemycodelab.io/simple-sidebar)
 * create an `App` component that uses your `Sidebar` component
 * create an `index.js` that renders your `App` component
 
-## Create and render a Sidebar component that can error
+## Create and render a error thing
 
 Demo [Simple Error](https://demo.alchemycodelab.io/simple-error)
 
