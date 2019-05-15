@@ -21,7 +21,7 @@ import PropTypes from 'prop-types';
 import Dog from './Dog';
 
 function Dogs({ dogs }) {
-  const dogLis = dogs.map(({ name, age, weight }) => (
+  const dogList = dogs.map(({ name, age, weight }) => (
     <li>
       <Dog name={name} age={age} weight={weight} />
     </li>
@@ -29,7 +29,7 @@ function Dogs({ dogs }) {
 
   return (
     <ul>
-      {dogLis}
+      {dogList}
     </ul>
   )
 }
@@ -54,15 +54,15 @@ import PropTypes from 'prop-types';
 import Dog from './Dog';
 
 function Dogs({ dogs }) {
-  const dogLis = dogs.map(({ name, age, weight }) => (
-    <li>
-      <Dog key={`${name}-${age}-${weight}`} name={name} age={age} weight={weight} />
+  const dogList = dogs.map(({ name, age, weight }) => (
+    <li key={i}>
+      <Dog name={name} age={age} weight={weight} />
     </li>
   ));
 
   return (
     <ul>
-      {dogLis}
+      {dogList}
     </ul>
   )
 }

@@ -108,4 +108,87 @@ Higher order components (HOCs) are functions that take components
 and return components. HOCs allow us to reuse functionality with
 multiple components.
 
+```js
+import React from 'react;
 
+export const withTitle = Component => title => {
+  return function WithTitle(props) {
+    return <Component title={title} ...props />
+  }
+}
+```
+
+Above, `withTitle` is a HOC that will always pass a title to
+another component.
+
+```js
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withTitle } from './withTitle';
+
+function Header({ title, children }) {
+  return (
+    <header>
+      <h2>{title}</h2>
+      {children}
+    </header>
+  )
+}
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node
+};
+
+export default Header;
+
+const withTitleHeader = withTitle(Header);
+export const CoolHeader = withTitleHeader('cool');
+export const BadHeader = withTitleHeader('bad')
+export const SiteHeader = withTitleHeader('My Site')
+```
+
+Above we created three additional `Header` components.
+
+```js
+import React from 'react';
+import {
+  CoolHeader,
+  BadHeader,
+  SiteHeader
+} from './Header';
+
+export default function App() {
+  return (
+    <>
+      <SiteHeader>
+        <a href="/home">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </SiteHeader>
+      <CoolHeader>
+        <p>Cool!</p>
+      </CoolHeader>
+      <BadHeader>
+        <ul>
+          <li>Beaches</li>
+          <li>Spiders</li>
+          <li>pollution</li>
+        </ul>
+      </BadHeader>
+    </>
+  );
+}
+```
+
+```js
+import React from 'react';
+
+export const withLoader = (Component, Loader = <h1>Loading</h1>) => {
+  return function WithLoader(props) {
+    const { loading, ...rest } = props;
+
+    if(loading) return <hi
+  }
+}
+```
