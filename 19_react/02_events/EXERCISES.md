@@ -2,7 +2,7 @@
 
 ## Create and render a ColorPicker component
 
-Demo [Simple Color Picker](http://demo.alchemycodelab.io/simple-color-picker)
+Demo [Simple Color Picker](https://demo.alchemycodelab.io/simple-color-picker)
 
 * create a `ColorPicker` component
     * create a button for red, yellow, and blue

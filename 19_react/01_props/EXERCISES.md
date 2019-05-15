@@ -2,7 +2,7 @@
 
 ## Create and render a Dog component
 
-Demo [Property Dog](http://demo.alchemycodelab.io/property-dog)
+Demo [Property Dog](https://demo.alchemycodelab.io/property-dog)
 
 * create a `Dog` component that displays a dog's name, age, weight
     * pass name, age, and weight as properties to the `Dog` component
@@ -13,7 +13,7 @@ Demo [Property Dog](http://demo.alchemycodelab.io/property-dog)
 
 ## Create and render a Color component
 
-Demo [Property Color](http://demo.alchemycodelab.io/property-color)
+Demo [Property Color](https://demo.alchemycodelab.io/property-color)
 
 * create a `Color` component that displays a color's name, hex, and rgb
     * pass name, hex, and rgb as properties

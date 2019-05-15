@@ -2,7 +2,7 @@
 
 ## Create and render a Colors component
 
-Demo [Simple Colors List](http://demo.alchemycodelab.io/simple-colors-list)
+Demo [Simple Colors List](https://demo.alchemycodelab.io/simple-colors-list)
 
 * create a `Colors` component that takes an array of colors
   * a color has name, hex, and rgb
@@ -13,7 +13,7 @@ Demo [Simple Colors List](http://demo.alchemycodelab.io/simple-colors-list)
 
 ## Create and render a PhotoAlbum component
 
-Demo [Simple Photo Album](http://demo.alchemycodelab.io/simple-photo-albums)
+Demo [Simple Photo Album](https://demo.alchemycodelab.io/simple-photo-album)
 
 * create a `Photo` component
   * `Photo` takes a photo property and displays an img

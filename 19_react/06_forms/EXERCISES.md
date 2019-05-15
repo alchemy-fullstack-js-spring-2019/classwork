@@ -2,6 +2,8 @@
 
 ## Create and render a TextFormatter component
 
+Demo [Simple Text Formatter](https://demo.alchemycodelab.io/simple-text-formatter/)
+
 * create a `TextFormatter` component
   * use a text input to capture text
   * print text below input
@@ -14,7 +16,7 @@
 
 ## Create and render a CreateColor component
 
-Demo [Simple Colors Form](http://demo.alchemycodelab.io/simple-colors-form)
+Demo [Simple Colors Form](https://demo.alchemycodelab.io/simple-colors-form)
 
 * create a `CreateColor` component takes an `addColor` property
   * `CreateColor` is a form with a name and color input

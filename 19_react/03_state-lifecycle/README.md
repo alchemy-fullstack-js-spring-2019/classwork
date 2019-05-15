@@ -58,7 +58,9 @@ export default class Dog extends PureComponent {
   }
 
   handleClick = () => {
-    this.setState({ age: 6 });
+    this.setState({ age: 6 }, () => {
+      // after age has updated
+    });
   }
 
   render() {
@@ -95,6 +97,7 @@ export default class Dog extends PureComponent {
   }
 
   handleClick = () => {
+    // this.setState({ age: this.state.age + 1 })
     this.setState(state => {
       return {
         age: state.age + 1

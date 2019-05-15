@@ -2,7 +2,7 @@
 
 ## Create and render a ColorPicker component
 
-Demo [Simple Color Picker Disploy](http://demo.alchemycodelab.io/simple-color-picker-display)
+Demo [Simple Color Picker Display](https://demo.alchemycodelab.io/simple-color-picker-display)
 
 * create a `ColorPicker` component
   * create a button for red, yellow, and blue
@@ -20,7 +20,7 @@ Demo [Simple Color Picker Disploy](http://demo.alchemycodelab.io/simple-color-pi
 
 ## Create and render an Incrementer component
 
-Demo [Simple Incrementer](http://demo.alchemycodelab.io/simple-incrementer)
+Demo [Simple Incrementer](https://demo.alchemycodelab.io/simple-incrementer)
 
 * create a `Incrementer` component
   * use state to keep track of the `count` of button presses
@@ -31,7 +31,7 @@ Demo [Simple Incrementer](http://demo.alchemycodelab.io/simple-incrementer)
 
 ## Create and render a ColorPicker and ColorDisplay component
 
-Demo [Lifted Color Picker Display](http://demo.alchemycodelab.io/lifted-color-picker-display)
+Demo [Lifted Color Picker Display](https://demo.alchemycodelab.io/lifted-color-picker-display)
 
 * create a `ColorPicker` component that takes a function to update the selected color
   * create a button for red, yellow, and blue
@@ -48,7 +48,7 @@ Demo [Lifted Color Picker Display](http://demo.alchemycodelab.io/lifted-color-pi
 
 ## Create and render a RandomColor component
 
-Demo [Random Color](http://demo.alchemycodelab.io/random-color)
+Demo [Random Color](https://demo.alchemycodelab.io/random-color)
 
 * create a `RandomColor` changes colors randomly every second
 * create an `App` component that uses your `RandomColor` component

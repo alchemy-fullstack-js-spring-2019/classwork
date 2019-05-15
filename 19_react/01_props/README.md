@@ -191,7 +191,7 @@ function Dog({ name, age, weight }) {
         </>
       )}
     </dl>
-  )
+  );
 }
 
 Dog.propTypes = {

@@ -4,11 +4,15 @@
 
 * Data Down
 * Events Up
+* Components
+  * Container Components
+  * Presentational Components
 
 ## Resources
 
 * [Data Flows Down](https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down)
 * [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html)
+* [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
 
 ## Data Down
 
@@ -109,3 +113,15 @@ export default class Count extends PureComponent {
   }
 }
 ```
+
+## Components
+
+### Container Components
+
+As a rule of thumb, container components are stateful (class)
+components which deal how things work.
+
+### Presentational Components
+
+As a rule of thumb, presentational components are stateless
+functional components which deal with how things look.
