@@ -78,7 +78,7 @@ export default class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error) {
-    console.error(error)
+    console.error(error);
   }
 
   render() {
