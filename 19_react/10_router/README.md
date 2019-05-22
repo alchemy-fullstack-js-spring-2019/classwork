@@ -92,7 +92,7 @@ export default function App() {
 ```
 
 In the above example both the `Home` and `About` components
-will render when a use navigates to `/about` because both
+will render when a user navigates to `/about` because both
 `/` and `/about` are contained in `/about`. We can prevent
 this by using the `exact` property.
 
@@ -120,6 +120,7 @@ export default function App() {
   )
 }
 ```
+
 Path can also contain variable, like express.
 
 ```js
@@ -223,8 +224,8 @@ function Header() {
   return (
     <header>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/">Home Page</Link>
+        <Link to="/about">About Page</Link>
       </nav>
     </header>
   )
@@ -233,10 +234,13 @@ function Header() {
 export default function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-      </Switch>
+      <>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+        </Switch>
+      </>
     </Router>
   )
 }

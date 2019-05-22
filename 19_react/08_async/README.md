@@ -16,7 +16,7 @@ This will keep our components simple, while making API calls reusable.
 // src/services/futuramaApi.js
 
 export const getQuotes = (count = 10) => {
-  return fetch('https://futuramaapi.herokuapp.com/api/quotes')
+  return fetch(`https://futuramaapi.herokuapp.com/api/quotes/${count}`)
     .then(res => ([res.ok, res.json()]))
     .then(([ok, json]) => {
       if(!ok) throw 'Unable to fetch quote'
@@ -116,7 +116,7 @@ export default class TopQuotes extends PureComponent {
 
   state = {
     quotes: [],
-    loading: true
+    loading: false
   }
 
   fetchQuotes = () => {

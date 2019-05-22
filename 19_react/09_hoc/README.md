@@ -42,7 +42,7 @@ console.log(add5(10)); // 15
 
 ```js
 function ColorPicker({ updateColor }) {
-  const handleColor = color => event => updateColor(color)
+  const handleColor = color => event => updateColor(color);
 
   return <button onClick={handleColor('red')}>Red</button>;
 }
@@ -78,7 +78,7 @@ console.log(myCounter()); // 2
 console.log(myCounter()); // 3
 ```
 
-Above we created a `counter` function with stores a count and
+Above we created a `counter` function which stores a count and
 returns a function that can access the count. On every invocation
 we increment the count and return its new value.
 
@@ -329,4 +329,6 @@ import { getCharacters } from '../../services/rickAndMortyApi';
 
 const LoadingCharacters = withLoading(Characters, Loading);
 export default withFetch(getCharacters, [], 'characters')(LoadingCharacters);
+
+export default withFetch(getLocations, [], 'locations')(LoadingLocation);
 ```
