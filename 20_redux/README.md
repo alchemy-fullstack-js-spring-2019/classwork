@@ -46,7 +46,7 @@ and returning a new state object based on the action.
 ```js
 function reducer(state, action) {
   switch(action.type) {
-    case: 'DO_STUFF':
+    case 'DO_STUFF':
       return { stuff: 'done' };
     default:
       return state;
@@ -66,7 +66,7 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch(action.type) {
-    case: 'DO_STUFF':
+    case 'DO_STUFF':
       return { stuff: 'done' };
     default:
       return state;
@@ -88,7 +88,7 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch(action.type) {
-    case: 'DO_STUFF':
+    case 'DO_STUFF':
       return { stuff: 'done' };
     default:
       return state;
@@ -111,7 +111,7 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch(action.type) {
-    case: 'DO_STUFF':
+    case 'DO_STUFF':
       return { stuff: 'done' };
     default:
       return state;
@@ -135,7 +135,7 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch(action.type) {
-    case: 'DO_STUFF':
+    case 'DO_STUFF':
       return { stuff: 'done' };
     default:
       return state;
@@ -162,7 +162,7 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch(action.type) {
-    case: 'DO_STUFF':
+    case 'DO_STUFF':
       return { stuff: 'done' };
     default:
       return state;
@@ -192,7 +192,7 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch(action.type) {
-    case: 'DO_STUFF':
+    case 'DO_STUFF':
       return { stuff: 'done' };
     default:
       return state;
