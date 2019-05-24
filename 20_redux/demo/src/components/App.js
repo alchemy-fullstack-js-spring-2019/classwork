@@ -1,12 +1,12 @@
 import React from 'react';
-import AllPosts from '../containers/post/AllPosts';
 import CreatePost from '../containers/post/CreatePost';
+import AllPosts from '../containers/post/AllPosts';
 
 export default function App() {
   return (
     <>
       <CreatePost />
-      <AllPosts title="hi" />
+      <AllPosts />
     </>
   );
 }

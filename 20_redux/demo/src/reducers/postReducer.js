@@ -1,6 +1,8 @@
 import { CREATE_POST, DELETE_POST } from '../actions/postActions';
 
-const initialState = [];
+const initialState = [
+  { title: 'hi', body: 'connect' }
+];
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {

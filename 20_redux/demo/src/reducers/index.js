@@ -2,11 +2,16 @@ import { combineReducers } from 'redux';
 import posts from './postReducer';
 import comments from './commentReducer';
 
-// {
-//   posts: [{}],
-//   comments: {}
-// }
+const lunchInitialState = {
+  drink: null,
+  sandwich: null,
+  chips: null
+};
+
 export default combineReducers({
   posts,
-  comments
+  comments,
+  lunch(state = lunchInitialState, action) {
+    return state;
+  }
 });
