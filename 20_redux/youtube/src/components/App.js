@@ -1,6 +1,17 @@
 import React from 'react';
-import AllThumbnails from '../containers/thumbnails/AllThumbnails';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import Home from './Home';
 
 export default function App() {
-  return <AllThumbnails />;
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </Router>
+  );
 }

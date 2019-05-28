@@ -1,10 +1,12 @@
-const initialState = [
-  'WQO-aOdJLiw',
-  'c_zAW96Ncjk',
-  'dQw4w9WgXcQ',
-  'oHg5SJYRHA0'
-];
+import { CREATE_VIDEO } from '../actions/videosActions';
+
+const initialState = [];
 
 export default function reducer(state = initialState, action) {
-  return state;
+  switch(action.type) {
+    case CREATE_VIDEO:
+      return [...state, action.payload];
+    default:
+      return state;
+  }
 }

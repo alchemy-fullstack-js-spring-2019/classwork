@@ -1,4 +1,5 @@
 import reducer from './videosReducer';
+import { createVideo } from '../actions/videosActions';
 
 describe('video reducer', () => {
   it('returns an empty array on initialization', () => {
@@ -6,11 +7,14 @@ describe('video reducer', () => {
       type: '@@INIT'
     });
 
+    expect(newState).toEqual([]);
+  });
+
+  it('handles the create video action', () => {
+    const newState = reducer([], createVideo('abcd'));
+
     expect(newState).toEqual([
-      'WQO-aOdJLiw',
-      'c_zAW96Ncjk',
-      'dQw4w9WgXcQ',
-      'oHg5SJYRHA0'
+      'abcd'
     ]);
   });
 });
