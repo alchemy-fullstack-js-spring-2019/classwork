@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import VideoThumbnail from './VideoThumbnail';
 
 function VideoThumbnails({ thumbnails }) {
-  const thumbnailList = thumbnails.map(url => (
-    <li key={url}>
-      <VideoThumbnail url={url} />
+  const thumbnailList = thumbnails.map(({ id, url }) => (
+    <li key={id}>
+      <VideoThumbnail id={id} url={url} />
     </li>
   ));
 
@@ -17,7 +17,10 @@ function VideoThumbnails({ thumbnails }) {
 }
 
 VideoThumbnails.propTypes = {
-  thumbnails: PropTypes.arrayOf(PropTypes.string).isRequired
+  thumbnails: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
+  })).isRequired
 };
 
 export default VideoThumbnails;

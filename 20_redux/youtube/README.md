@@ -212,3 +212,16 @@ const obj = {
   myOtherFunction: () => {}
 }
 ```
+
+## Ideas
+
+* soundcloud clone
+  * playlists?
+  * favorite songs
+* goodreads clone
+  * favorite books
+* Twitch clone
+  * favorite streamer
+  * sort streamers
+* image liker
+  * favorites
