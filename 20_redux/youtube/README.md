@@ -135,11 +135,11 @@ Each action has a type and optional payload.
 }
 ```
 
-To make it easier to recreate and similar actions, we often create
+To make it easier to recreate similar actions, we often create
 action creator functions.
 
 ```js
-const doStuff = ({
+const doStuff = () => ({
   type: 'DO_STUFF'
 })
 ```
@@ -178,13 +178,13 @@ export default connect(
 )(MyComponent)
 ```
 
-#### mapStateToProps
+#### mapStateToProps (getters, selectors)
 
 `mapStateToProps` is a function that takes the current redux state
 and returns an object where the keys are the names of properties
 to pass to a component.
 
-#### mapDispatchToProps
+#### mapDispatchToProps (setters, action creators)
 
 `mapDispatchToProps` is a function that takes dispatch and returns
 an object where the keys are the names of properties to pass to a
@@ -194,3 +194,21 @@ The major difference between `mapStateToProps` and `mapDispatchToProps`
 is that the values of the object returned by `mapDispatchToProps` will
 be functions. Those functions are responsible for dispatching actions
 to update state.
+
+```js
+const obj = {
+  myFunction() {
+
+  },
+  myOtherFunction() {
+
+  }
+}
+```
+
+```js
+const obj = {
+  myFunction: () => {},
+  myOtherFunction: () => {}
+}
+```
