@@ -78,10 +78,10 @@ import { myMiddleware } from './middleware/myMiddleware.js';
 export default createStore(
   reducer,
   compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     applyMiddleware(
       myMiddleware
-    )
+    ),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
 ```
