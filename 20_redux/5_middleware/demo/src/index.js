@@ -16,8 +16,12 @@ import {
 // next is a function to move to the next middleware
 // action is the dispatched action
 const logger = store => next => action => {
+  // before the reducer has changed state
   console.log('Before reducer', store.getState());
-  next(action);
+
+  next(action); // go to the next middleware
+
+  // after the reducer has changed state
   console.log('After reducer', store.getState());
 };
 
@@ -37,6 +41,7 @@ function reducer(state = {}, action) {
 
 const store = createStore(
   reducer,
+  // applyMiddleware is like app.use
   applyMiddleware(logger, logger2)
 );
 
