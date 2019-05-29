@@ -12,6 +12,9 @@ import {
 //   }
 // }
 
+// store is the redux store
+// next is a function to move to the next middleware
+// action is the dispatched action
 const logger = store => next => action => {
   console.log('Before reducer', store.getState());
   next(action);
