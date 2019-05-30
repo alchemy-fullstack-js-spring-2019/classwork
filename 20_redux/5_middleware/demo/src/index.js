@@ -2,7 +2,7 @@ import {
   createStore,
   applyMiddleware
 } from 'redux';
-
+import thunk from 'redux-thunk';
 
 // function logger(store) {
 //   return function(next) {
@@ -30,10 +30,10 @@ const logger2 = store => next => action => {
   next(action);
 };
 
-function reducer(state = {}, action) {
+function reducer(state = [], action) {
   switch(action.type) {
-    case 'HI':
-      return 'hi';
+    case 'FETCH_CHARACTERS':
+      return action.payload;
     default:
       return state;
   }
@@ -42,9 +42,32 @@ function reducer(state = {}, action) {
 const store = createStore(
   reducer,
   // applyMiddleware is like app.use
-  applyMiddleware(logger, logger2)
+  applyMiddleware(logger, logger2, thunk)
 );
 
-store.dispatch({
-  type: 'HI'
-});
+// function fetchCharacters() {
+//   return function(dispatch) {
+//     return fetch('https://rickandmortyapi.com/api/character/')
+//       .then(res => res.json())
+//       .then(results => {
+//         dispatch({
+//           type: 'FETCH_CHARACTERS',
+//           payload: results.results
+//         });
+//       });
+//   }
+// }
+
+// action creator
+const fetchCharacters = () => dispatch => {
+  return fetch('https://rickandmortyapi.com/api/character/')
+    .then(res => res.json())
+    .then(results => {
+      dispatch({
+        type: 'FETCH_CHARACTERS',
+        payload: results.results
+      });
+    });
+};
+
+store.dispatch(fetchCharacters());

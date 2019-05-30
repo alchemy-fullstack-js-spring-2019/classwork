@@ -1,0 +1,17 @@
+.Characters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  li {
+    display: flex;
+    align-items: flex-end;
+    width: 4rem;
+    padding: 0.5rem;
+    list-style-type: none;
+  }
+
+  img {
+    width: 100%;
+  }
+}
