@@ -2,11 +2,11 @@
 
 ## Agenda
 
-* DevSign
+* DevSign (9)
   * HTML
   * CSS
   * Portfolio
-* DevOps
+* DevOps (15)
   * AWS
   * Docker
   * Deploy
