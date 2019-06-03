@@ -81,3 +81,9 @@
   * `transition-duration`
   * `transition-timing-function`
   * `transition-delay`
+
+## Exercise
+
+* Style your news article
+* Create a chessboard with CSS and HTML
+* make the chessboard tiles spin

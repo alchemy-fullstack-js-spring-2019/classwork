@@ -1,4 +1,4 @@
-# Devops
+# DNS and Virtual Machines
 
 ## Resources
 
