@@ -1,13 +1,10 @@
 import {
   createStore,
-  applyMiddleware
 } from 'redux';
 import reducer from './reducers';
-import { myMiddleware } from './middleware/myMiddleware.js';
+import { loggerEnhancer } from './loggerEnhancer';
 
 export default createStore(
   reducer,
-  applyMiddleware(
-    myMiddleware
-  )
+  loggerEnhancer
 );

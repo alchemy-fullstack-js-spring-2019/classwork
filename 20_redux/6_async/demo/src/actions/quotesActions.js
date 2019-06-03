@@ -1,5 +1,5 @@
 import { getQuotes } from '../services/futuramaApi';
-import { createAction } from 'promise-middleware-redux';
+// import { createAction } from 'promise-middleware-redux';
 
 export const FETCH_QUOTES_LOADING = 'FETCH_QUOTES_LOADING';
 export const FETCH_QUOTES = 'FETCH_QUOTES';
