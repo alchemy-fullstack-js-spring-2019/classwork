@@ -1,6 +1,6 @@
 # Semantic HTML
 
-## Resounces
+## Resources
 
 * [Semantic Web](http://seekbrevity.com/semantic-markup-important-web-design/)
 
@@ -9,11 +9,10 @@
 * Semantic HTML
   * `header`
   * `footer`
-  * `main`
+  * `main` - only used once
   * `nav`
   * `section`
   * `article`
-  * `summary`
   * `aside`
   * `figure` and `figcaption`
 

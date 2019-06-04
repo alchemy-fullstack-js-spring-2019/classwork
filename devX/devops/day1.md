@@ -6,8 +6,9 @@
 
 ## Agenda
 
-* DNS
-* virtual computers
+* DNS - Domain Name System
+  * IP address are associated with places on the internet
+* virtual machines
   * why?
     * isolation
     * portability
