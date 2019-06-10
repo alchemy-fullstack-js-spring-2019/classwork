@@ -15,6 +15,7 @@
   * route
   * deploy to heroku
     * create app on heroku
+    * [Install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
     * `heroku addons:create mongolab:sandbox -a YOUR_APP_HERE`
     * `git remote add heroku YOUR_HEROKU_GIT_URL`
     * `git push heroku master`
