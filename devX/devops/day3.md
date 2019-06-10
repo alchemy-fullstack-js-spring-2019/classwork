@@ -3,7 +3,7 @@
 ## Agenda
 
 * why docker?
-  * light weight isolated and reproducible environment
+  * lightweight isolated and reproducible environment
   * popular
 * what is docker?
   * isolated environment
@@ -12,7 +12,7 @@
 * containers
   * docker hub
   * `docker run`
-* images
+* image
   * Dockerfile
   * `docker build`
 

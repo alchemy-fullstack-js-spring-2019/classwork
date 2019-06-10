@@ -2,14 +2,15 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
+  Route
 } from 'react-router-dom';
-import { getRoutes } from '../router';
+import VideoPage from '../pages/VideoPage';
 
 export default function App() {
   return (
     <Router>
       <Switch>
-        {getRoutes()}
+        <Route path="/video/:id" component={VideoPage} />
       </Switch>
     </Router>
   );

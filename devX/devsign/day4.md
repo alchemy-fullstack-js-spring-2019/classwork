@@ -1,9 +1,10 @@
-#
+# Transitions and Media queries
 
 ## Agenda
 
-
-
-## Exercise
-
-Build a full-stack application with continuous delivery.
+* Transitions
+  * make a sidebar
+* Media query syntax
+  * media types
+  * media features
+  * logical operators
