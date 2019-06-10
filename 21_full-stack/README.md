@@ -13,10 +13,17 @@
 * Notes server create note
   * model
   * route
+  * create app on heroku
+    * `heroku addons:create mongolab:sandbox -a YOUR_APP_HERE`
+    * `git remote add heroku YOUR_HEROKU_GIT_URL`
+    * `git push heroku master`
+    * setup travis file to auto deploy
+      * Install travis cli `gem install travis -v 1.8.10 --no-rdoc --no-ri`
+      * [Travis Docs](https://docs.travis-ci.com/user/deployment/heroku/)
 * Connect client and server
+  * update client service
   * use cors
   * use webpack-dotenv
-  * update client service
 
 ### List Notes
 
@@ -73,5 +80,10 @@
   * container
 * Notes server paging
   * update route
+
+### Add auth
+
+* setup auth0 on client
+* setup auth0 on server
 
 ### Add querying
